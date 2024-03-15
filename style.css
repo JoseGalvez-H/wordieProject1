@@ -30,15 +30,19 @@
 
 
 body {
-    display: grid
-    background-color: white;
+    display: grid;
     font-family: "montserrat", sans-serif;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    height: 100vh;
     gap: 1vmin;
 }
 
 #title {
-    display: grid;
-    grid-template: ;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    justify-self: center;
+    background-color: aqua;
     color: pink;
     font-weight: 500;
     font-size: 8vmin;
@@ -49,20 +53,66 @@ body {
 }
 
 #message {
-    display: grid;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    justify-self: center;
     color: pink;
     font-size: 4vmin;
 }
 
+#display_screen {
+    grid-column-start: 1;
+    grid-column-end: 9;
+}
+
 .flower_area {
+    grid-column-start: 3;
+    grid-column-end: 5;
     background: lightgreen;
-    width: 300px;
-    padding: 1rem;
 }
 
 .flower_start {
+    height: 25vh;
     width: 100%;
-    height: 200px;
     object-fit: contain;
 }
 
+.button_area {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    background: yellow;
+}
+
+#button {
+    
+}
+
+.keyboard_area {
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 6;
+    grid-row-end: 8;
+    background: purple;
+}
+
+#firstrow {
+    grid-column-start: 2;
+    grid-column-end: 6;
+    justify-content: space-between;
+    color: white;
+    size: 8vmin;
+}
+#secondrow {
+    grid-column-start: 2;
+    grid-column-end: 6;
+    justify-content: space-between;
+    color: white;
+}
+#thirdrow {
+    grid-column-start: 2;
+    grid-column-end: 6;
+    justify-content: space-between;
+    color: white;
+}

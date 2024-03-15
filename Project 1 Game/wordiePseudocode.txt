@@ -1,0 +1,35 @@
+WORDIE PSEUDOCODE
+
+
+* Constants
+   * Define the maximum number of failed attempts allowed in the game.
+* State variables
+   * Hold the randomly selected word that the player needs to guess.
+   * Store the letters that the player has guessed correctly.
+   * Track the number of incorrect guesses made by the player.
+* Cached references
+   * Reference to the area where the word display, status messages, and images will appear.
+   * Reference to the on-screen keyboard where the player selects letters.
+   * Reference to the text element where status messages are displayed.
+   * Reference to the button used to start/reset the game.
+* Event listeners
+   * Listen for clicks on the keyboard and trigger a function.
+   * Listen for clicks on the play/reset button and trigger the reset game function.
+* Functions
+   * Set up the initial state of the game.
+   * Randomly select a word for the player to guess.
+   * Display empty text fields for each letter in the word to be guessed.
+   * Handle the player's keyboard input, check if the guessed letter is correct, update the display, and manage game logic.
+   * Check if a character is a letter.
+   * Check if the guessed letter is correct.
+   * Display the correctly guessed letter on the screen.
+   * Display the incorrectly guessed letter on the screen and update the image for failed attempts.
+   * Check if the player has guessed all letters correctly and won the game.
+   * End the game, display the final message, and disable further input.
+   * Disable all keys in the keyboard.
+   * Disable the play/reset button.
+   * Resets the game to its initial state.
+   * Enable all keys in the keyboard.
+   * Update the status message displayed to the player.
+* Initialize the game
+   * Initiates the game setup when the page loads.

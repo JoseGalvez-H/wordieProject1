@@ -57,6 +57,13 @@ function init() {
     render();
 }
 
+function displayInitialImage() {
+    wrongGuessImageEl.innerHTML = '';
+    const img = document.createElement('img');
+    img.src = "../projectFiles/orchidseries/orchid0.png";
+    wrongGuessImageEl.appendChild(img);
+}
+
 function render() {
     displayEl.textContent = answer.split('').join(' ');
     if (gameStatus === "win") {
@@ -73,10 +80,9 @@ function render() {
     }
 }
 
-//displayInitialImage()
 
 // handleBtnClick(evt) {
-    
+
 //     render();
 // }
 

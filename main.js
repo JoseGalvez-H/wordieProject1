@@ -83,17 +83,6 @@ function render() {
 
 // handleBtnClick(evt) {
 
-function render();
-    displayEl.textContent = answer.split('').join('');
-    if (gameStatus === "win") {
-        messageEl.innerText = 'Congratulations! You won!';
-        playWinVideo();
-    } else if (gameStatus === "lose") {
-        messageEl.innerText = 'Sorry, you lost. The word was ' + secretWord;
-    }
-}
-
-
 // playWinVideo();
 
 // displayWrongGuessImage();

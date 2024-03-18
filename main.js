@@ -81,7 +81,18 @@ function render() {
 }
 
 
-// handleBtnClick(evt) {
+function handleBtnClick(evt) {
+    if (gameStatus !== null) return;
+    const guess = evt.target.textContent.toLowerCase();
+    if (!secretWord.includes(guess)) {
+        if (!wrongGuesses.includes(guess)) {
+            wrongGuesses.push(guess);
+            if (wrongGuesses.length <= MAX_GUESSES) {
+                displayWrongGuessImage(wrongGuesses.length - 1);
+            }
+        }
+    }
+}
 
 // playWinVideo();
 

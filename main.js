@@ -2,58 +2,87 @@
 const MAX_GUESSES = 6;
 
 const WORDS = [
-    "Lily",
-    "Tulip",
-    "Orchid",
-    "Rose",
-    "Peony",
-    "Daisy",
-    "Carnation",
-    "Daffodil",
-    "Dahlia",
-    "Sunflower",
-    "Chrysanthemum",
-    "Hydrangea"
+    "lily", "tulip", "orchid", "rose", "peony",
+    "daisy", "carnation", "daffodil", "dahlia", "sunflower",
+    "chrysanthemum", "hydrangea"];
+
+const IMGS = [
+    "../projectFiles/orchidseries/orchid0.png",
+    "../projectFiles/orchidseries/orchid1.png",
+    "../projectFiles/orchidseries/orchid2.png",
+    "../projectFiles/orchidseries/orchid3.png",
+    "../projectFiles/orchidseries/orchid4.png",
+    "../projectFiles/orchidseries/orchid5.png",
+    "../projectFiles/orchidseries/orchid6.png",
 ];
 
-// const IMGS [
-    "IMAGE PATH",
-    "IMAGE PATH"
-// ]
+const WIN_VIDEO_PATH = "../projectFiles/win_video.mp4";
 
-/*----- state variables -----*/
+/*----- app's state (variables) -----*/
 let secretWord;
-let answer = "";
-let wrongGuesses = [];
+let answer;
+let wrongGuesses;
 let gameStatus;
-let lose;
 
-/*----- cached elements  -----*/
-const messageEl = document.getElementById(message);
-const displayEl = document.getElementById(display_flower);
-
+/*----- cached element references -----*/
+const messageEl = document.getElementById('message');
+const displayEl = document.getElementById('display_flower');
+const wrongGuessImageEl = document.getElementById('wrongGuessImage');
+//const videoContainer = document.getElementById('videoContainer'); //Add to HTML
 
 /*----- event listeners -----*/
-//document.querySelector('.ktbn').addEventListener('click', handleBtnClick);
+document.querySelectorAll('.kbtn').forEach(button => {
+    button.addEventListener('click', handleBtnClick);
+});
+
+document.getElementById('button').addEventListener('click', init); // Play/Reset button
 
 /*----- functions -----*/
 
-// init()
+init();
 
 function init() {
-    secretWord = WORDS[Math.floor(Math.random() * WORDS.length)];
-    winner = null;
+    secretWord = WORDS[Math.floor(Math.random() * WORDS.length)].toLowerCase();
+    answer = "_".repeat(secretWord.length);
+    wrongGuesses = [];
+    gameStatus = null;
+
+    //videoContainer.innerHTML = ''; // Clear any previous video
+    //wrongGuessImageEl.innerHTML = ''; // Clear previous images
+
     messageEl.innerText = 'Select a letter to start';
+    displayEl.textContent = answer.split('').join(' ');
+
+    displayInitialImage();
     render();
-};
+}
 
-function handleBtnClick(evt) {
-    if (evt.target.tagName !== 'BUTTON')
-    console.log(evt.target.tagName);
-};
+function render() {
+    displayEl.textContent = answer.split('').join(' ');
+    if (gameStatus === "win") {
+        messageEl.innerText = 'Congratulations! You won!';
+        playWinVideo();
+    } else if (gameStatus === "lose") {
+        messageEl.innerText = 'Sorry, you lost. The word was ' + secretWord;
+        // Check if the loss was due to reaching max guesses and update the image
+        if (wrongGuesses.length >= MAX_GUESSES) {
+            displayLoseImage();
+        }
+    } else {
+        messageEl.innerText = 'Select a letter to continue';
+    }
+}
 
-//function render() {
+//displayInitialImage()
+
+// handleBtnClick(evt) {
     
+//     render();
 // }
 
-// renderMessage(){}
+
+// playWinVideo();
+
+// displayWrongGuessImage();
+
+// displayLoseImage();

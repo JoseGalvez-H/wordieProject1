@@ -90,7 +90,13 @@ function handleBtnClick(evt) {
             if (wrongGuesses.length <= MAX_GUESSES) {
                 displayWrongGuessImage(wrongGuesses.length - 1);
             }
+            if (wrongGuesses.length >= MAX_GUESSES) gameStatus = "lose";
         }
+    } else {
+        let updatedAnswer = '';
+        secretWord.split('').forEach((letter, index) => {
+            updatedAnswer += letter === guess ? guess : answer[index];
+        });
     }
 }
 

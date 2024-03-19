@@ -48,7 +48,7 @@ function init() {
     gameStatus = null;
 
     //videoContainer.innerHTML = ''; // Clear any previous video
-    //wrongGuessImageEl.innerHTML = ''; // Clear previous images
+    wrongGuessImageEl.innerHTML = ''; // Clear previous images
 
     messageEl.innerText = 'Select a letter to start';
     displayEl.textContent = answer.split('').join(' ');
@@ -71,7 +71,7 @@ function render() {
         playWinVideo();
     } else if (gameStatus === "lose") {
         messageEl.innerText = 'Sorry, you lost. The word was ' + secretWord;
-        // Check if the loss was due to reaching max guesses and update the image
+
         if (wrongGuesses.length >= MAX_GUESSES) {
             displayLoseImage();
         }
@@ -96,7 +96,10 @@ function handleBtnClick(evt) {
         secretWord.split('').forEach((letter, index) => {
             updatedAnswer += letter === guess ? guess : answer[index];
         });
+        answer = updatedAnswer;
     }
+    if (!answer.includes('_')) gameStatus = "win";
+
     render();
 }
 
@@ -109,6 +112,11 @@ function displayWrongGuessImage(index) {
     }
 }
 
-// displayLoseImage();
+function displayLoseImage() {
+    wrongGuessImageEl.innerHTML = '';
+    const img = document.createElement('img');
+    img.src = "../projectFiles/orchidseries/orchid6.png";
+    wrongGuessImageEl.appendChild(img);
+};
 
 // playWinVideo();

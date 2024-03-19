@@ -28,7 +28,8 @@ let gameStatus;
 const messageEl = document.getElementById('message');
 const displayEl = document.getElementById('display_flower');
 const wrongGuessImageEl = document.getElementById('wrongGuessImage');
-//const videoContainer = document.getElementById('videoContainer'); //Add to HTML
+const videoContainer = document.querySelector('.video_container');
+const video = document.createElement('video');
 
 /*----- event listeners -----*/
 document.querySelectorAll('.kbtn').forEach(button => {
@@ -47,12 +48,12 @@ function init() {
     wrongGuesses = [];
     gameStatus = null;
 
-    //videoContainer.innerHTML = ''; // Clear any previous video
     wrongGuessImageEl.innerHTML = ''; // Clear previous images
 
     messageEl.innerText = 'Select a letter to start';
     displayEl.textContent = answer.split('').join(' ');
 
+    hideWinVideo();
     displayInitialImage();
     render();
 }
@@ -119,4 +120,20 @@ function displayLoseImage() {
     wrongGuessImageEl.appendChild(img);
 };
 
-// playWinVideo();
+function playWinVideo() {
+    const videoContainer = document.querySelector('.video_container');
+
+    if (videoContainer) {
+        video.src = WIN_VIDEO_PATH;
+        video.autoplay = true;
+        //video.controls = true;
+
+        video.addEventListener('ended', init);
+
+        videoContainer.appendChild(video);
+        videoContainer.style.display = 'block';
+
+    }
+};
+
+//function hideWinVideo()

@@ -80,7 +80,6 @@ function render() {
     }
 }
 
-
 function handleBtnClick(evt) {
     if (gameStatus !== null) return;
     const guess = evt.target.textContent.toLowerCase();
@@ -98,10 +97,18 @@ function handleBtnClick(evt) {
             updatedAnswer += letter === guess ? guess : answer[index];
         });
     }
+    render();
 }
 
-// playWinVideo();
-
-// displayWrongGuessImage();
+function displayWrongGuessImage(index) {
+    wrongGuessImageEl.innerHTML = '';
+    if (IMGS[index]) {
+        const img = document.createElement('img');
+        img.src = IMGS[index];
+        wrongGuessImageEl.appendChild(img);
+    }
+}
 
 // displayLoseImage();
+
+// playWinVideo();

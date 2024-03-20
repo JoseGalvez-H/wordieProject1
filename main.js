@@ -61,7 +61,7 @@ function init() {
 function displayInitialImage() {
     wrongGuessImageEl.innerHTML = '';
     const img = document.createElement('img');
-    img.src = "../projectFiles/orchidseries/orchid0.png";
+    img.src = "./projectFiles/orchidseries/orchid0.png";
     wrongGuessImageEl.appendChild(img);
 }
 
@@ -116,7 +116,7 @@ function displayWrongGuessImage(index) {
 function displayLoseImage() {
     wrongGuessImageEl.innerHTML = '';
     const img = document.createElement('img');
-    img.src = "../projectFiles/orchidseries/orchid6.png";
+    img.src = "./projectFiles/orchidseries/orchid6.png";
     wrongGuessImageEl.appendChild(img);
 };
 

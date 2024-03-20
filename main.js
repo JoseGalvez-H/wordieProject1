@@ -55,7 +55,7 @@ function init() {
 
     hideWinVideo();
     displayInitialImage();
-    render();
+    // render();
 }
 
 function displayInitialImage() {

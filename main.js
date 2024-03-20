@@ -136,4 +136,9 @@ function playWinVideo() {
     }
 };
 
-//function hideWinVideo()
+function hideWinVideo() {
+    const videoContainer = document.querySelector('.video_container');
+    if (videoContainer) {
+        videoContainer.style.display = 'none';
+    }
+}

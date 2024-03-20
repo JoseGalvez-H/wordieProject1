@@ -7,16 +7,16 @@ const WORDS = [
     "chrysanthemum", "hydrangea"];
 
 const IMGS = [
-    "../projectFiles/orchidseries/orchid0.png",
-    "../projectFiles/orchidseries/orchid1.png",
-    "../projectFiles/orchidseries/orchid2.png",
-    "../projectFiles/orchidseries/orchid3.png",
-    "../projectFiles/orchidseries/orchid4.png",
-    "../projectFiles/orchidseries/orchid5.png",
-    "../projectFiles/orchidseries/orchid6.png",
+    "./projectFiles/orchidseries/orchid0.png",
+    "./projectFiles/orchidseries/orchid1.png",
+    "./projectFiles/orchidseries/orchid2.png",
+    "./projectFiles/orchidseries/orchid3.png",
+    "./projectFiles/orchidseries/orchid4.png",
+    "./projectFiles/orchidseries/orchid5.png",
+    "./projectFiles/orchidseries/orchid6.png",
 ];
 
-const WIN_VIDEO_PATH = "../projectFiles/win_video.mp4";
+const WIN_VIDEO_PATH = "./projectFiles/win_video.mp4";
 
 /*----- app's state (variables) -----*/
 let secretWord;

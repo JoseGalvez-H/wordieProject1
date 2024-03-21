@@ -50,7 +50,7 @@ function init() {
 
     wrongGuessImageEl.innerHTML = ''; // Clear previous images
 
-    messageEl.innerText = 'Select a letter to start';
+    messageEl.innerText = `Select a letter to guess the flower name. You have ${MAX_GUESSES} guesses`;
     displayEl.textContent = answer.split('').join(' ');
 
     hideWinVideo();
@@ -67,6 +67,7 @@ function displayInitialImage() {
 
 function render() {
     displayEl.textContent = answer.split('').join(' ');
+    const guessesLeft = MAX_GUESSES - wrongGuesses.length;
     if (gameStatus === "win") {
         messageEl.innerText = 'Congratulations! You won!';
         playWinVideo();
@@ -77,7 +78,7 @@ function render() {
             displayLoseImage();
         }
     } else {
-        messageEl.innerText = 'Select a letter to continue';
+        messageEl.innerText = `Select a letter to continue. Guesses left: ${guessesLeft}`;
     }
 }
 
@@ -88,7 +89,7 @@ function handleBtnClick(evt) {
         if (!wrongGuesses.includes(guess)) {
             wrongGuesses.push(guess);
             if (wrongGuesses.length <= MAX_GUESSES) {
-                displayWrongGuessImage(wrongGuesses.length - 1);
+                displayWrongGuessImage(wrongGuesses.length);
             }
             if (wrongGuesses.length >= MAX_GUESSES) gameStatus = "lose";
         }
@@ -106,9 +107,10 @@ function handleBtnClick(evt) {
 
 function displayWrongGuessImage(index) {
     wrongGuessImageEl.innerHTML = '';
+    const imgIndex = index;
     if (IMGS[index]) {
         const img = document.createElement('img');
-        img.src = IMGS[index];
+        img.src = IMGS[imgIndex];
         wrongGuessImageEl.appendChild(img);
     }
 }

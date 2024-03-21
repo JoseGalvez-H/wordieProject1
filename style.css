@@ -43,6 +43,13 @@ h1, h2 {
     background-color: pink;
 }
 
+#button:hover {
+    background-color: #ff69b4;
+    color: purple;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
 .keyboard_area {
     display: flex;
     flex-direction: column;
@@ -67,6 +74,26 @@ h1, h2 {
     size: 20px
 }
 
+.kbtn:hover {
+    background-color: #ff69b4;
+    color: purple;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
 .hidden-content {
     visibility: hidden;
 }
+
+.video-style {
+    width: 80%;
+    height: 90vw;
+    max-width: 80vh;
+    max-height: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-Index: 1000;
+}
+

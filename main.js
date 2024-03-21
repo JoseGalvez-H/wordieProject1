@@ -36,26 +36,26 @@ document.querySelectorAll('.kbtn').forEach(button => {
     button.addEventListener('click', handleBtnClick);
 });
 
-document.getElementById('button').addEventListener('click', init); // Play/Reset button
+document.getElementById('button').addEventListener('click', init);
 
 /*----- functions -----*/
 
 init();
 
 function init() {
-    secretWord = WORDS[Math.floor(Math.random() * WORDS.length)].toLowerCase();
+    secretWord = WORDS[Math.floor(Math.random() * WORDS.length)].toUpperCase();
     answer = "_".repeat(secretWord.length);
     wrongGuesses = [];
     gameStatus = null;
 
-    wrongGuessImageEl.innerHTML = ''; // Clear previous images
+    wrongGuessImageEl.innerHTML = '';
 
     messageEl.innerText = `Select a letter to guess the flower name. You have ${MAX_GUESSES} guesses`;
     displayEl.textContent = answer.split('').join(' ');
 
     hideWinVideo();
     displayInitialImage();
-    // render();
+    render();
 }
 
 function displayInitialImage() {
@@ -84,7 +84,7 @@ function render() {
 
 function handleBtnClick(evt) {
     if (gameStatus !== null) return;
-    const guess = evt.target.textContent.toLowerCase();
+    const guess = evt.target.textContent.toUpperCase();
     if (!secretWord.includes(guess)) {
         if (!wrongGuesses.includes(guess)) {
             wrongGuesses.push(guess);
@@ -133,14 +133,8 @@ function playWinVideo() {
     videoContainer.classList.remove('hidden-content');
 
     const video = document.createElement('video');
+    video.classList.add('video-style');
     video.autoplay = true;
-    video.style.width = "80%";
-    video.style.height = "auto";
-    video.style.position = "fixed";
-    video.style.top = "50%";
-    video.style.left = "50%";
-    video.style.transform = "translate(-50%, -50%)";
-    video.style.zIndex = "1000";
 
     const source = document.createElement('source');
     source.src = "./projectFiles/win_video.mp4";

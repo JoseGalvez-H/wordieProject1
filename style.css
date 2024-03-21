@@ -4,20 +4,6 @@
     font-family: 'Montserrat', sans-serif, Arial, Helvetica;
 }
 
-@media (max-width: 768px) {
-    h1, h2 {
-        font-size: 20px;
-    }
-    .kbtn {
-        padding: 10px;
-        font-size: 16px;
-    }
-    #button {
-        padding: 10px;
-        font-size: 16px;;
-    }
-}
-
 body {
     background-color: black; 
     max-height: 100% vh;

@@ -30,6 +30,10 @@ h1, h2 {
     color: pink;
 }
 
+h1 {
+    letter-spacing: 25px;
+}
+
 #display_flower {
     display: flex;
     justify-content: center;

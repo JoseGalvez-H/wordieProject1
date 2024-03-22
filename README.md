@@ -19,10 +19,36 @@ Wordie is a visually appealing word guessing game where players try to guess the
 
 ## Code Highlights
 
-- **Efficient State Management**: The game's state is managed through a series of variables that track the current secret word, the player's answer so far, wrong guesses, and the game's status.
-- **Modular Function Design**: The game logic is organized into well-defined functions, such as `init()` for game initialization, `handleBtnClick()` for processing letter guesses, and `render()` for updating the UI based on the game state.
 - **Dynamic Content Creation**: Elements like images and videos are dynamically created and manipulated in the DOM based on the game's progress, enhancing the interactive experience.
+- **Efficient State Management**: The game's state is managed through a series of variables that track the current secret word, the player's answer so far, wrong guesses, and the game's status.
 - **Preloading of Assets**: The `preloadImages()` function improves the game's performance by loading all image assets in advance.
+- **Modular Function Design**: The game logic is organized into well-defined functions, such as `init()` for game initialization, `handleBtnClick()` for processing letter guesses, and `render()` for updating the UI based on the game state.
+
+
+## Game UI and Screenshots
+
+Wordie offers an intuitive and user-friendly interface, designed to enhance your gaming experience. Below are some highlights of the game's UI components and a peak into the gameplay through screenshots.
+
+### Game Interface
+The game interface displays the secret word as underscores for letters that need to be guessed and reveals letters as they are correctly guessed. Below the secret word and orchid image, you'll find an interactive keyboard where you can select letters to guess the secret word.
+
+![Game Interface Screenshot](./projectFiles/readmeimages/onload.png)
+
+### Visual Feedback for Guesses
+Each guess updates the visual feedback component, which includes images representing the number of guesses left and changes depending on the correctness of your guess.
+
+![Visual Feedback Screenshot](./projectFiles/readmeimages/missedguess.png)
+
+### Winning Screen
+Upon guessing the word correctly, the victory screen appears, celebrating your win. This screen will play a victory video, of an orchid blooming, making your win even more rewarding.
+
+![Victory Screen Screenshot](./projectFiles/readmeimages/onwin.png)
+
+### Game Over Screen
+If you're unable to guess the word within the allowed 6 attempts, the game over screen provides feedback on the correct word. Along with an empty orchid stem.
+
+![Game Over Screen Screenshot](./projectFiles/readmeimages/onlose.png)
+
 
 ## Setup
 

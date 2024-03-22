@@ -47,17 +47,13 @@ function init() {
         button.disabled = false;
         button.classList.remove('wrong-guess');
     });
-
     secretWord = WORDS[Math.floor(Math.random() * WORDS.length)].toUpperCase();
     answer = "_".repeat(secretWord.length);
     wrongGuesses = [];
     gameStatus = null;
-
     wrongGuessImageEl.innerHTML = '';
-
     messageEl.innerText = `Select a letter to guess the flower name. You have ${MAX_GUESSES} guesses`;
     displayEl.textContent = answer.split('').join(' ');
-
     displayInitialImage();
     preloadImages();
     render();
@@ -85,7 +81,6 @@ function render() {
         playWinVideo();
     } else if (gameStatus === "lose") {
         messageEl.innerText = `Sorry, you lost. The word was ${secretWord}`;
-
         if (wrongGuesses.length >= MAX_GUESSES) {
             displayLoseImage();
         }
@@ -101,10 +96,8 @@ function handleBtnClick(evt) {
     if (!secretWord.includes(guess)) {
         if (!wrongGuesses.includes(guess)) {
             wrongGuesses.push(guess);
-
             button.disabled = true;
             button.classList.add('wrong-guess');
-
             if (wrongGuesses.length <= MAX_GUESSES) {
                 displayWrongGuessImage(wrongGuesses.length);
             }
@@ -118,7 +111,6 @@ function handleBtnClick(evt) {
         answer = updatedAnswer;
     }
     if (!answer.includes('_')) gameStatus = "win";
-
     render();
 }
 
@@ -147,19 +139,15 @@ function playWinVideo() {
     const videoContainer = document.querySelector('.video_container');
     videoContainer.innerHTML = '';
     videoContainer.classList.remove('hidden-content');
-
     const video = document.createElement('video');
     video.classList.add('video-style');
     video.autoplay = true;
-
     const source = document.createElement('source');
     source.src = "./projectFiles/win_video.mp4";
     source.type = "video/mp4";
     video.appendChild(source);
-
     videoContainer.appendChild(video);
     videoContainer.style.display = 'block';
-
     video.onended = () => {
         document.querySelectorAll('.hidden-content').forEach(element => {
             element.classList.remove('hidden-content');

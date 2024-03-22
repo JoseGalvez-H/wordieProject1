@@ -44,6 +44,7 @@ h1 {
 #button {
     display: flex;
     justify-content: center;
+    padding: 4px;
     background-color: pink;
     font-size: 20px;
 }
@@ -84,6 +85,12 @@ h1 {
     color: purple;
     cursor: pointer;
     transform: scale(1.2);
+}
+
+.kbtn.wrong-guess {
+    background-color: magenta;
+    color: white;
+    cursor: not-allowed;
 }
 
 .hidden-content {

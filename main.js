@@ -43,6 +43,11 @@ document.getElementById('button').addEventListener('click', init);
 init();
 
 function init() {
+    document.querySelectorAll('.kbtn').forEach(button => {
+        button.disabled = false;
+        button.classList.remove('wrong-guess');
+    });
+
     secretWord = WORDS[Math.floor(Math.random() * WORDS.length)].toUpperCase();
     answer = "_".repeat(secretWord.length);
     wrongGuesses = [];
@@ -55,6 +60,7 @@ function init() {
 
     hideWinVideo();
     displayInitialImage();
+    preloadImages();
     render();
 }
 
@@ -72,7 +78,7 @@ function render() {
         messageEl.innerText = 'Congratulations! You won!';
         playWinVideo();
     } else if (gameStatus === "lose") {
-        messageEl.innerText = 'Sorry, you lost. The word was ' + secretWord;
+        messageEl.innerText = `Sorry, you lost. The word was ${secretWord}`;
 
         if (wrongGuesses.length >= MAX_GUESSES) {
             displayLoseImage();
@@ -84,10 +90,15 @@ function render() {
 
 function handleBtnClick(evt) {
     if (gameStatus !== null) return;
+    const button = evt.target;
     const guess = evt.target.textContent.toUpperCase();
     if (!secretWord.includes(guess)) {
         if (!wrongGuesses.includes(guess)) {
             wrongGuesses.push(guess);
+
+            button.disabled = true;
+            button.classList.add('wrong-guess');
+
             if (wrongGuesses.length <= MAX_GUESSES) {
                 displayWrongGuessImage(wrongGuesses.length);
             }
@@ -106,13 +117,12 @@ function handleBtnClick(evt) {
 }
 
 function displayWrongGuessImage(index) {
-    wrongGuessImageEl.innerHTML = '';
-    const imgIndex = index;
-    if (IMGS[index]) {
-        const img = document.createElement('img');
-        img.src = IMGS[imgIndex];
+    let img = wrongGuessImageEl.querySelector('img');
+    if (!img) {
+        img = document.createElement('img');
         wrongGuessImageEl.appendChild(img);
     }
+    img.src = IMGS[index];
 }
 
 function displayLoseImage() {
@@ -157,4 +167,11 @@ function hideWinVideo() {
     if (videoContainer) {
         videoContainer.style.display = 'none';
     }
+}
+
+function preloadImages() {
+    IMGS.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
 }

@@ -58,7 +58,6 @@ function init() {
     messageEl.innerText = `Select a letter to guess the flower name. You have ${MAX_GUESSES} guesses`;
     displayEl.textContent = answer.split('').join(' ');
 
-    hideWinVideo();
     displayInitialImage();
     preloadImages();
     render();
@@ -69,6 +68,13 @@ function displayInitialImage() {
     const img = document.createElement('img');
     img.src = "./projectFiles/orchidseries/orchid0.png";
     wrongGuessImageEl.appendChild(img);
+}
+
+function preloadImages() {
+    IMGS.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
 }
 
 function render() {
@@ -160,18 +166,4 @@ function playWinVideo() {
         });
         videoContainer.style.display = 'none';
     };
-}
-
-function hideWinVideo() {
-    const videoContainer = document.querySelector('.video_container');
-    if (videoContainer) {
-        videoContainer.style.display = 'none';
-    }
-}
-
-function preloadImages() {
-    IMGS.forEach(src => {
-        const img = new Image();
-        img.src = src;
-    });
 }

@@ -9,7 +9,7 @@ Wordie is a visually appealing word guessing game where players try to guess the
 - **Vibrant Visual Feedback**: Utilizes a series of flower images to visually represent the player's progress and the number of guesses remaining.
 - **Dynamic Guessing Interface**: Offers an interactive button-based interface for letter selection.
 - **Engaging Success and Failure States**: Celebrates victories with a victory video and visually indicates game over state for losses.
-- **Adaptive Difficulty**: The secret word is randomly selected from a predefined list of flower names, ensuring a fresh challenge with each game.
+
 
 ## How to Play
 
